@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- Title removed as requested -->
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #F0F4F8; }
+    .carousel { position: relative; max-width: 800px; margin: 0 auto; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+    .slide { display: none; }
+    .slide img { width: 100%; height: auto; display: block; }
+    .caption { padding: 16px; font-size: 18px; color: #13133E; background: #FFFFFF; }
+    .caption strong { color: #13133E; }
+    .nav { position: absolute; top: 50%; transform: translateY(-50%); font-size: 30px; color: rgba(0,0,0,0.5); cursor: pointer; user-select: none; padding: 8px; }
+    .prev { left: 8px; }
+    .next { right: 8px; }
+    .dots { text-align: center; padding: 12px 0; background: #fff; }
+    .dot { display: inline-block; width: 12px; height: 12px; margin: 0 4px; background: #ccc; border-radius: 50%; cursor: pointer; }
+    .active-dot { background: #8BA83A; }
+  </style>
+</head>
+<body>
+  <!-- Page title hidden per request -->
+  <div class="carousel">
+    <!-- Slide 1: Overview of Metaphor -->
+    <div class="slide">
+      <img src="https://cdn.glitch.global/5a8314d8-f426-4841-9e45-af6a66dc632d/Image%206-26-25%20at%206.24%E2%80%AFPM.jpeg?v=1750983493087" alt="Overview of UX metaphors">
+    </div>
+    <!-- Slide 2: Steering Wheel / ChatGPT -->
+    <div class="slide">
+      <img src="https://cdn.glitch.global/5a8314d8-f426-4841-9e45-af6a66dc632d/Image%206-26-25%20at%207.07%E2%80%AFPM.jpeg?v=1750983420929" alt="Steering Wheel – ChatGPT Interface">
+      <div class="caption">
+        <strong>ChatGPT</strong> – this is the user interface (Input)<br>
+        Just like a steering wheel allows a driver to control the direction of a car, ChatGPT is the interface we use to guide and interact with the AI.
+      </div>
+    </div>
+    <!-- Slide 3: Engine / Foundational Model -->
+    <div class="slide">
+      <img src="https://cdn.glitch.global/5a8314d8-f426-4841-9e45-af6a66dc632d/Image%206-26-25%20at%207.06%E2%80%AFPM%20(2).jpeg?v=1750983437070" alt="Engine – Foundational Model">
+      <div class="caption">
+        <strong>03 model</strong> – this is the foundational model that powers the outputs<br>
+        The engine is what powers the car. Similarly, the underlying AI model powers the outputs and capabilities of the system.
+      </div>
+    </div>
+    <!-- Slide 4: Gas Pedal / Inference Speed -->
+    <div class="slide">
+      <img src="https://cdn.glitch.global/5a8314d8-f426-4841-9e45-af6a66dc632d/Image%206-26-25%20at%207.06%E2%80%AFPM%20(1).jpeg?v=1750983445208" alt="Gas Pedal – Inference Speed">
+      <div class="caption">
+        <strong>Interface</strong> – this controls the speed of the interaction<br>
+        The gas pedal controls how fast the car goes—just like settings in the AI interface influence how quickly or deeply the AI responds.
+      </div>
+    </div>
+    <!-- Slide 5: Gear Shift / Model Switching -->
+    <div class="slide">
+      <img src="https://cdn.glitch.global/5a8314d8-f426-4841-9e45-af6a66dc632d/Image%206-26-25%20at%207.06%E2%80%AFPM.jpeg?v=1750983452185" alt="Gear Shift – Model Switching">
+      <div class="caption">
+        <strong>Types of Models</strong> – this helps us navigate between specialized models<br>
+        Just as a gear shift helps navigate different terrains, choosing different models helps us solve specific tasks like image generation or math computation.
+      </div>
+    </div>
+    <!-- Navigation Arrows -->
+    <div class="nav prev" onclick="plusSlides(-1)">&#10094;</div>
+    <div class="nav next" onclick="plusSlides(1)">&#10095;</div>
+    <!-- Dot Indicators (5 dots) -->
+    <div class="dots">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+      <span class="dot" onclick="currentSlide(4)"></span>
+      <span class="dot" onclick="currentSlide(5)"></span>
+    </div>
+  </div>
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    function plusSlides(n) { showSlides(slideIndex += n); }
+    function currentSlide(n) { showSlides(slideIndex = n); }
+    function showSlides(n) {
+      const slides = document.getElementsByClassName("slide");
+      const dots   = document.getElementsByClassName("dot");
+      if (n > slides.length) slideIndex = 1;
+      if (n < 1) slideIndex = slides.length;
+      for (let s of slides) s.style.display = "none";
+      for (let d of dots)   d.className = d.className.replace(" active-dot", "");
+      slides[slideIndex-1].style.display = "block";
+      dots[slideIndex-1].className += " active-dot";
+    }
+  </script>
+</body>
+</html>
